@@ -13,8 +13,8 @@ $illumposition -2.423 -23.046 -9.328
 $cdmaterials models/v92/weapons/mini14
 $cdmaterials models/weapons/v_hand
 
-$attachment "muzzle" "muzzle" 0 0 0 rotate 0 0 0
-$attachment "1" "eject" 0 0 0 rotate 0 0 0
+$attachment "muzzle" "muzzleflash" 0 0 0 rotate 0 -90 0
+$attachment "1" "ejection" 0 0 0 rotate 0 0 0
 
 $bonemerge "ValveBiped.Bip01_Spine4"
 $bonemerge "ValveBiped.Bip01_L_Clavicle"
@@ -64,67 +64,65 @@ $sequence "IR_idle" {
 }
 
 $sequence "IR_fire" {
-	"fire1"
+	"fire_mini14"
 	activity "ACT_VM_PRIMARYATTACK" 1
-	{ event CL_EVENT_MUZZLEFLASH0 0 "SMG2 MUZZLE" }
-	{ event CL_EVENT_EJECTBRASS1 0 "1" }
+	{ event AE_MUZZLEFLASH 0 "SMG1 MUZZLE" } 
+	{ event 6001 0 "0" }
 	snap
 	fps 30
 	node fire
 }
 
 $sequence "fire2" {
-	"fire1"
+	"fire_mini14"
 	activity "ACT_VM_RECOIL1" 1
-	{ event CL_EVENT_MUZZLEFLASH0 0 "SMG2 MUZZLE" }
-	{ event CL_EVENT_EJECTBRASS1 0 "1" }
+	{ event AE_MUZZLEFLASH 0 "SMG1 MUZZLE" } 
+	{ event 6001 0 "0" }
 	snap
 	fps 30
 	node fire
 }
 
 $sequence "fire3" {
-	"fire2"
+	"fire_mini14"
 	activity "ACT_VM_RECOIL2" 1
-	{ event CL_EVENT_MUZZLEFLASH0 0 "SMG2 MUZZLE" }
-	{ event CL_EVENT_EJECTBRASS1 0 "1" }
+	{ event AE_MUZZLEFLASH 0 "SMG1 MUZZLE" } 
+	{ event 6001 0 "0" }
 	snap
 	fps 30
 }
 
 $sequence "fire4" {
-	"fire3"
+	"fire_mini14"
 	activity "ACT_VM_RECOIL3" 1
-	{ event CL_EVENT_MUZZLEFLASH0 0 "SMG2 MUZZLE" }
-	{ event CL_EVENT_EJECTBRASS1 0 "1" }
+	{ event AE_MUZZLEFLASH 0 "SMG1 MUZZLE" } 
+	{ event 6001 0 "0" }
 	snap
 	fps 30
 }
 
 $sequence "IR_fire2" {
-	"fire1"
+	"fire_mini14"
 	frames 0 1
 	activity "ACT_VM_SECONDARYATTACK" 1
-	{ event CL_EVENT_MUZZLEFLASH0 0 "SMG2 MUZZLE" }
-	{ event CL_EVENT_EJECTBRASS1 0 "1" }
+	{ event AE_MUZZLEFLASH 0 "SMG1 MUZZLE" } 
+	{ event 6001 0 "0" }
 	snap
 	fps 30
 	node fire
 }
 
 $sequence "IR_reload" {
-	"reload_partial"
+	"reload_mini14"
 	// activity "ACT_VM_RELOAD" 1
 	activity "ACT_VM_RELOAD_EMPTY" 1
 	{ event AE_CL_PLAYSOUND 21 "Weapon_AR2.Reload_Rotate" } //Weapon_AK47.Clipout
 	{ event AE_CL_PLAYSOUND 55 "Weapon_AR2.Reload_Push" } //Weapon_AK47.Clipin
-	fadein 0.2
-	fadeout 0.2
 	fps 37
 }
 
 $sequence "IR_reload_empty" {
-	"reload_under"
+	"reload_empty_mini14"
 	// activity "ACT_VM_RELOAD_EMPTY" 1
 	activity "ACT_VM_RELOAD" 1
 	{ event AE_CL_PLAYSOUND 16 "Weapon_AR2.Reload_Rotate" } //Weapon_AK47.Clipout
@@ -134,13 +132,13 @@ $sequence "IR_reload_empty" {
 }
 
 $sequence "IR_draw" {
-	"draw"
+	"draw_mini14"
 	activity "ACT_VM_DRAW" 1
 	fps 30
 }
 
 $sequence "IR_holster" {
-	"draw"
+	"draw_mini14"
 	reverse
 	activity "ACT_VM_HOLSTER" 1
 	fps 30

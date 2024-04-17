@@ -66,7 +66,7 @@ $sequence "IR_idle" {
 }
 
 $sequence "IR_fire" {
-	"fire_mini14"
+	"fire"
 	activity "ACT_VM_PRIMARYATTACK" 1
 	{ event AE_MUZZLEFLASH 0 "SMG1 MUZZLE" } 
 	{ event 6001 0 "1" }
@@ -76,7 +76,7 @@ $sequence "IR_fire" {
 }
 
 $sequence "fire2" {
-	"fire_mini14"
+	"fire"
 	activity "ACT_VM_RECOIL1" 1
 	{ event AE_MUZZLEFLASH 0 "SMG1 MUZZLE" } 
 	{ event 6001 0 "1" }
@@ -86,7 +86,7 @@ $sequence "fire2" {
 }
 
 $sequence "fire3" {
-	"fire_mini14"
+	"fire"
 	activity "ACT_VM_RECOIL2" 1
 	{ event AE_MUZZLEFLASH 0 "SMG1 MUZZLE" } 
 	{ event 6001 0 "1" }
@@ -95,7 +95,7 @@ $sequence "fire3" {
 }
 
 $sequence "fire4" {
-	"fire_mini14"
+	"fire"
 	activity "ACT_VM_RECOIL3" 1
 	{ event AE_MUZZLEFLASH 0 "SMG1 MUZZLE" } 
 	{ event 6001 0 "1" }
@@ -104,7 +104,7 @@ $sequence "fire4" {
 }
 
 $sequence "IR_fire2" {
-	"fire_mini14"
+	"fire"
 	frames 0 1
 	activity "ACT_VM_SECONDARYATTACK" 1
 	{ event AE_MUZZLEFLASH 0 "SMG1 MUZZLE" } 
@@ -116,7 +116,7 @@ $sequence "IR_fire2" {
 
 $sequence "IR_reload" {
 // original 47 frames @ 30 fps = 1.5666
-	"reload_mini14"
+	"reload"
 	// activity "ACT_VM_RELOAD" 1
 	activity "ACT_VM_RELOAD_EMPTY" 1
 	{ event AE_CL_PLAYSOUND 0 "Weapon_AR2.Reload_Rotate" }
@@ -127,7 +127,7 @@ $sequence "IR_reload" {
 
 $sequence "IR_reload_empty" {
 // original 47 frames @ 30 fps = 1.5666
-	"reload_empty_mini14"
+	"reload_empty"
 	// activity "ACT_VM_RELOAD_EMPTY" 1
 	activity "ACT_VM_RELOAD" 1
 	{ event AE_CL_PLAYSOUND 0 "Weapon_AR2.Reload_Rotate" }
@@ -140,7 +140,7 @@ $sequence "IR_reload_empty" {
 
 $sequence "IR_draw" {
 // original 25 frames @ 30 fps = 0.8333
-	"draw_mini14"
+	"draw"
 	activity "ACT_VM_DRAW" 1
 	{ event AE_CL_PLAYSOUND 0 "Weapon_AR2.Reload_Push" }
 	fps 36 

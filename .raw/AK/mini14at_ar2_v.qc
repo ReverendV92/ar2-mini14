@@ -1,4 +1,6 @@
 
+$origin 0 0 -1 0
+
 $modelname weapons/v_irifle
 
 $model Mini14 mini14at_ref
@@ -67,7 +69,7 @@ $sequence "IR_fire" {
 	"fire_mini14"
 	activity "ACT_VM_PRIMARYATTACK" 1
 	{ event AE_MUZZLEFLASH 0 "SMG1 MUZZLE" } 
-	{ event 6001 0 "0" }
+	{ event 6001 0 "1" }
 	snap
 	fps 30
 	node fire
@@ -77,7 +79,7 @@ $sequence "fire2" {
 	"fire_mini14"
 	activity "ACT_VM_RECOIL1" 1
 	{ event AE_MUZZLEFLASH 0 "SMG1 MUZZLE" } 
-	{ event 6001 0 "0" }
+	{ event 6001 0 "1" }
 	snap
 	fps 30
 	node fire
@@ -87,7 +89,7 @@ $sequence "fire3" {
 	"fire_mini14"
 	activity "ACT_VM_RECOIL2" 1
 	{ event AE_MUZZLEFLASH 0 "SMG1 MUZZLE" } 
-	{ event 6001 0 "0" }
+	{ event 6001 0 "1" }
 	snap
 	fps 30
 }
@@ -96,7 +98,7 @@ $sequence "fire4" {
 	"fire_mini14"
 	activity "ACT_VM_RECOIL3" 1
 	{ event AE_MUZZLEFLASH 0 "SMG1 MUZZLE" } 
-	{ event 6001 0 "0" }
+	{ event 6001 0 "1" }
 	snap
 	fps 30
 }
@@ -106,42 +108,50 @@ $sequence "IR_fire2" {
 	frames 0 1
 	activity "ACT_VM_SECONDARYATTACK" 1
 	{ event AE_MUZZLEFLASH 0 "SMG1 MUZZLE" } 
-	{ event 6001 0 "0" }
+	{ event 6001 0 "1" }
 	snap
 	fps 30
 	node fire
 }
 
 $sequence "IR_reload" {
+// original 47 frames @ 30 fps = 1.5666
 	"reload_mini14"
 	// activity "ACT_VM_RELOAD" 1
 	activity "ACT_VM_RELOAD_EMPTY" 1
-	{ event AE_CL_PLAYSOUND 21 "Weapon_AR2.Reload_Rotate" } //Weapon_AK47.Clipout
-	{ event AE_CL_PLAYSOUND 55 "Weapon_AR2.Reload_Push" } //Weapon_AK47.Clipin
-	fps 37
+	{ event AE_CL_PLAYSOUND 0 "Weapon_AR2.Reload_Rotate" }
+	// { event AE_CL_PLAYSOUND 21 "Weapon_AR2.Reload_Rotate" } //Weapon_AK47.Clipout
+	// { event AE_CL_PLAYSOUND 55 "Weapon_AR2.Reload_Push" } //Weapon_AK47.Clipin
+	fps 57
 }
 
 $sequence "IR_reload_empty" {
+// original 47 frames @ 30 fps = 1.5666
 	"reload_empty_mini14"
 	// activity "ACT_VM_RELOAD_EMPTY" 1
 	activity "ACT_VM_RELOAD" 1
-	{ event AE_CL_PLAYSOUND 16 "Weapon_AR2.Reload_Rotate" } //Weapon_AK47.Clipout
-	{ event AE_CL_PLAYSOUND 47 "Weapon_AR2.Reload_Push" } //Weapon_AK47.Clipin
-	{ event AE_CL_PLAYSOUND 65 "Weapon_AR2.BoltPull" }
-	fps 37
+	{ event AE_CL_PLAYSOUND 0 "Weapon_AR2.Reload_Rotate" }
+	// { event AE_CL_PLAYSOUND 16 "Weapon_AR2.Reload_Rotate" } //Weapon_AK47.Clipout
+	// { event AE_CL_PLAYSOUND 47 "Weapon_AR2.Reload_Push" } //Weapon_AK47.Clipin
+	// { event AE_CL_PLAYSOUND 65 "Weapon_AR2.BoltPull" }
+	// { event 6001 66 "1" } // eject a round to explain why we don't have one in the chamber
+	fps 57
 }
 
 $sequence "IR_draw" {
+// original 25 frames @ 30 fps = 0.8333
 	"draw_mini14"
 	activity "ACT_VM_DRAW" 1
-	fps 30
+	{ event AE_CL_PLAYSOUND 0 "Weapon_AR2.Reload_Push" }
+	fps 36 
 }
 
 $sequence "IR_holster" {
-	"draw_mini14"
-	reverse
+// original 25 frames @ 30 fps = 0.8333
+	"holster"
 	activity "ACT_VM_HOLSTER" 1
-	fps 30
+	{ event AE_CL_PLAYSOUND 0 "Weapon_AR2.Reload_Push" }
+	fps 36
 }
 
 $sequence "shake" {
@@ -158,3 +168,12 @@ $sequence "inspect" {
 	fadeout 0.3
 	fps 30
 }
+
+$sequence idletolow { 
+	"idle_to_low" 
+	fps 30 
+	activity ACT_VM_LOWERED_TO_IDLE 1  
+	transition Ready Low 
+}
+$sequence lowtoidle "low_to_idle" fps 30 activity ACT_VM_IDLE_TO_LOWERED 1 transition Low Ready
+$sequence lowidle "lowidle" fps 30 loop activity ACT_VM_IDLE_LOWERED 1 node Low

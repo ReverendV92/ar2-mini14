@@ -1,0 +1,13 @@
+"VertexLitGeneric"
+{
+"$basetexture" "models\weapons\bren\weapon_bren_dm"
+"$bumpmap" "models\weapons\bren\weapon_bren_nm"
+"$phong" "1"
+"$phongexponenttexture" "models\weapons\bren\weapon_bren_em"
+"$phongalbedotint" "1"
+"$phongboost" ".7"
+"$phongfresnelranges"	"[3 5 7]"
+
+$halflambert 1
+$nocull 1
+}

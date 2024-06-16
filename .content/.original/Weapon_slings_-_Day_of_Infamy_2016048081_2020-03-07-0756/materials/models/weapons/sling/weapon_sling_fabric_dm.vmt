@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+{
+"$basetexture" "models\weapons\sling\weapon_sling_fabric_dm"
+"$bumpmap" "models\weapons\sling\weapon_sling_fabric_dm"
+"$phong" "1"
+"$phongexponent" "6"
+"$phongalbedotint" "1"
+"$phongboost" ".005"
+"$phongfresnelranges"	"[3 5 7]"
+$halflambert 1
+$nocull 1
+}

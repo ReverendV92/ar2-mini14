@@ -12,3 +12,7 @@ Ruger Mini-14 replacement for the Half-Life 2 SMG.
 * Hollywood Edge - Sounds
 * Troop - Animations
 * [V92](http://jessevanover92.net) - Compiles, edits, sounds, other nonsense
+
+### Other Versions
+* [Garry's Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3268714674)
+* [Half-Life 2](https://gamebanana.com/mods/521831)

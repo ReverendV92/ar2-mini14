@@ -16,3 +16,4 @@ Ruger Mini-14 replacement for the Half-Life 2 SMG.
 ### Other Versions
 * [Garry's Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3268714674)
 * [Half-Life 2](https://gamebanana.com/mods/521831)
+* [Synergy](https://steamcommunity.com/sharedfiles/filedetails/?id=3268717245)
